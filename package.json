@@ -1,0 +1,25 @@
+{
+  "name": "log-a-burger",
+  "version": "1.0.0",
+  "description": "Full Stack Application that logs burgers using MySQL, Node, Express, Handlebars, and an ORM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregriss/log-a-burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregriss/log-a-burger/issues"
+  },
+  "homepage": "https://github.com/gregriss/log-a-burger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
+}
