@@ -4,26 +4,41 @@ const connection = require('./connection');
 // ORM stands for Object Relational Mapper
 
 var orm = {
-    selectWhere: function(tableInput, colToSearch, valOfCol) {
-      var queryString = "SELECT * FROM ?? WHERE ?? = ?";
-      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+    // selectAll()
+    selectAll: function(tableInput, cb) {
+      var queryString = "SELECT * FROM " + tableInput + ";";
+      connection.query(queryString, function(err, result) {
           if(err) throw err;
-          console.log(result);
+          cb(result);
       });  
     },
-    sselectAndOrder: function(whatToSelect, table, orderCol) {
-        var queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+    insertOne: function(table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
+        // I want to change this part...
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString + "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+
         console.log(queryString);
-        connection.query(queryString, [whatToSelect, table, orderCol], function(err, result) {
+        connection.query(queryString, vals, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        })
+    },
+    // updateOne()
+    updateOne: function(whatToUpdate, table, orderCol) {
+        var queryString = "UPDATE ?? SET ?";
+        console.log(queryString);
+        connection.query(queryString, [whatToUpdate, table, orderCol], function(err, result) {
             if (err) throw err;
             console.log(result);
-        })
+        });
     }
 
 }
-// * `selectAll()`
-// * `insertOne()`
-// * `updateOne()`
 
-// * Export the ORM object in `module.exports`.
+// Export the ORM object in `module.exports`
 module.exports = orm;
