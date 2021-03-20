@@ -1,12 +1,11 @@
+// require db connection file
 const connection = require('./connection');
-
+// function to print questionmarks in generated queries
 function printQuestionMarks(num) {
     let arr = [];
-
     for (let i = 0; i < num; i++) {
         arr.push("?");
     }
-
     return arr.toString();
 };
 
@@ -24,16 +23,13 @@ function objToSql(ob) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             };
-
             arr.push(key + "=" + value);
         }
     }
     // switches array of multiple strings to one comma-separated string
     return arr.toString();
 }
-// * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
-// ORM stands for Object Relational Mapper
-
+// methods that will execute MySQL commands in the controllers; Methods used to retrieve and store data in the database.
 var orm = {
     selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";

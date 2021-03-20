@@ -1,5 +1,7 @@
+// require mysql package
 const mysql = require('mysql');
 
+// creating connection to database
 const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -7,5 +9,5 @@ const connection = mysql.createConnection({
     password: "rootroot",
     database: "burger_db"
 });
-
+// exporting db connection
 module.exports = connection;

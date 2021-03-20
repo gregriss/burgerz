@@ -1,3 +1,4 @@
+// require orm so we can call its functions
 const orm = require('../config/orm');
 
 // model named burger, uses orm functions
