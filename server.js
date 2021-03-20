@@ -1,11 +1,13 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const path = require('path');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+// designating file path for 
+const publicFilePath = path.join(__dirname, 'public');
 // serves static content for app from "public" directory
-app.use(express.static("public"));
-
+app.use('public', express.static(publicFilePath));
 
 // parse app body
 app.use(express.urlencoded({ extended: true }));

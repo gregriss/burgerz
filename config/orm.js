@@ -58,7 +58,6 @@ var orm = {
             cb(result);
         })
     },
-    // updateOne()
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE" + table;
 
@@ -74,15 +73,6 @@ var orm = {
             cb(result);
         });
     }
-    // this version is from cats? i think
-    // updateOne: function (whatToUpdate, table, orderCol) {
-    //     var queryString = "UPDATE ?? SET ?";
-    //     console.log(queryString);
-    //     connection.query(queryString, [whatToUpdate, table, orderCol], function (err, result) {
-    //         if (err) throw err;
-    //         console.log(result);
-    //     });
-    // }
 }
 
 // Export the ORM object to be used in burger.js (model)
