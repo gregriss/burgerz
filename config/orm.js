@@ -43,7 +43,7 @@ var orm = {
         });
     },
     insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
+        var queryString = "INSERT INTO ??";
         // I want to change this part...
         queryString += " (";
         queryString += cols.toString();
