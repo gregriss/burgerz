@@ -1,18 +1,19 @@
 const orm = require('../config/orm');
 
+// model named burger, uses orm functions
 const burger = {
     selectAll: function(cb) {
         orm.selectAll("burgers", function(res) {
             cb(res);
         });
     },
-    // insert ... like create
+    // insert function
     insertOne: function(cols, vals, cb) {
         orm.insertOne("burgers", cols, vals, function(res) {
             cb(res);
         });
     },
-    // update
+    // update function
     updateOne: function(objColVals, condition, cb) {
         orm.updateOne("burgers", objColVals, condition, function(res) {
             cb(res);
@@ -23,5 +24,5 @@ const burger = {
     }
 };
 
-// export burger 
+// export burger model
 module.exports = burger;

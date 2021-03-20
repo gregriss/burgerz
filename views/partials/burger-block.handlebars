@@ -1,0 +1,8 @@
+<li>
+    {{!-- name of burger --}}
+	{{name}}
+    {{!-- button to indicate whether burger has been devoured or not --}}
+	<button class="change-devoured" data-id="{{id}}" data-newdevour="{{devour}}">
+		{{#if devoured}}Devour It!!!{{else}}You Ate It{{/if}}
+	</button>
+</li>
