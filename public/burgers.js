@@ -26,8 +26,9 @@ $(function() {
       event.preventDefault();
   
       var newBurger = {
-        name: $("#bu").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+        burger_name: $("#bu").val().trim(),
+        devoured: 0
+        // devoured: $("[name=devoured]:checked").val().trim()
       };
   
       // Send the POST request
@@ -42,4 +43,18 @@ $(function() {
         }
       );
     });
+
+    $(".delete-button").on("click", function(event) {
+      console.log("Buger Deleted");
+      console.log(this);
+      let button = $(this);
+      // get id from button
+      let id = button.attr("data-id");
+      $.ajax("/api/burger/" + id, {
+        type: "DELETE"
+      }).then(function(results) {
+        console.log(results);
+        location.reload();
+      })
+    })
   });
