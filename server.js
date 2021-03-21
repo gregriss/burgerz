@@ -13,12 +13,14 @@ app.use('public', express.static(publicFilePath));
 // parse app body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 // setting handlbars as the engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes, give server access to routes
-var routes = require("./controllers/burgers_controller");
+const routes = require("./controllers/burgers_controller");
 // telling express app to use routes from controller 
 app.use(routes);
 

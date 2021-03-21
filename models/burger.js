@@ -12,12 +12,14 @@ const burger = {
     // insert function
     insertOne: function(cols, vals, cb) {
         orm.insertOne("burgers", cols, vals, function(res) {
+            console.log(res);
             cb(res);
         });
     },
     // update function
     updateOne: function(objColVals, condition, cb) {
         orm.updateOne("burgers", objColVals, condition, function(res) {
+            console.log(res);
             cb(res);
         });
     },
