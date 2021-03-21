@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // designating file path for static files
-const publicFilePath = path.join(__dirname, 'public');
+const publicFilePath = path.join(__dirname, 'public/assets');
 // serves static content for app from "public" directory
 app.use('public', express.static(publicFilePath));
 

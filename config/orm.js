@@ -32,14 +32,14 @@ function objToSql(ob) {
 // methods that will execute MySQL commands in the controllers; Methods used to retrieve and store data in the database.
 var orm = {
     selectAll: function (tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+        var queryString = "SELECT * FROM ??;";
         connection.query(queryString, [tableInput], function (err, result) {
             if (err) throw err;
             cb(result);
         });
     },
     insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO ??";
+        var queryString = "INSERT INTO " + table;
         // I want to change this part...
         queryString += " (";
         queryString += cols.toString();
