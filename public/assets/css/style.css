@@ -1,4 +1,49 @@
 * {
-    background: green;
+    margin: 0;
+}
+
+body {
+    color: brown;
+    background: bisque;
     text-align: center;
+    font-family: 'Trebuchet MS';
+    line-height: 24px;
+    letter-spacing: 1.5px;
+}
+
+header {
+    padding: 20px;
+    background: burlywood;
+    box-shadow: 5px 5px 10px 10px burlywood;
+}
+
+img {
+    height: 285px;
+    width: 450px;
+    border-radius: 40px;
+    margin: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.75fr 2fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . ."
+    "left left right right"
+    ". add-burger add-burger .";
+    padding: 10px;
+}
+
+.left {
+    grid-area: left; 
+}
+
+.right {
+    grid-area: right; 
+}
+
+.add-burger {
+    grid-area: add-burger;
 }
