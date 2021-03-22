@@ -16,7 +16,11 @@
 
   ## Usage
 
-  Enter the name of a burger, and watch it appear on the left side of the screen. To devour the burger, click the devour button and it will move to the right side, under Devoured Burgers.
+  Deployed app can be found here: https://peaceful-coast-04978.herokuapp.com/  
+  
+  ![Homepage](./public/assets/img/home.png)
+
+  Enter the name of a burger, and watch it appear on the left side of the screen. To devour the burger, click the devour button and it will move to the right side, under Devoured Burgers.To delete a burger, click `Delete Burger`, and it will be removed from the page as well as from the database.
 
   ## License
 

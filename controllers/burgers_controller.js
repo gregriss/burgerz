@@ -20,9 +20,11 @@ router.post("/api/burgers", function(req, res) {
 });
 // put route
 router.put("/api/burgers/:id", function(req, res) {
-    const burgerId = { id: req.params.id };
+    // const burgerId = { id: req.params.id };
+    const burgerId = req.params.id;
+    console.log("this is put method");
     // const devoured = req.params.devoured;
-   
+    console.log(req.body);
     console.log("burger id:" + burgerId);
     const updateValues = {
         // switch boolean to tiny int
@@ -30,13 +32,15 @@ router.put("/api/burgers/:id", function(req, res) {
     };
     console.log(updateValues);
     burger.updateOne( updateValues, burgerId, function(result) {
+
+        // console.log(result);
         // devoured: req.body.devoured
-        if (result.changedRows == 0) {
-            // if no rows changed, then ID doesn't exist ... 404
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
+        // if (result.affectedRows == 0) {
+        //     // if no rows changed, then ID doesn't exist ... 404
+        //     return res.status(404).end();
+        // } else {
+        //     res.status(200).end();
+        // }
     });
 });
     // delete route
