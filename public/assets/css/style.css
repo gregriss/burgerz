@@ -30,7 +30,7 @@ img {
   grid-template-rows: 0.75fr 2fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    ". . . ."
+    " . . . . "
     "left left right right"
     ". add-burger add-burger .";
     padding: 10px;

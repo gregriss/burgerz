@@ -14,10 +14,11 @@ $(function() {
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: newDevourState
-      }).then(
-        function() {
+      }).then(response => {
+        // function(response) {
           console.log("changed devour to", newDevour);
           // Reload the page to get the updated list
+          console.log(response);
           location.reload();
         }
       );
@@ -47,6 +48,7 @@ $(function() {
     });
 
     $(".delete-button").on("click", function(event) {
+      event.preventDefault();
       console.log("Buger Deleted");
       console.log(this);
       let button = $(this);

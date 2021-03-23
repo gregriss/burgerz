@@ -7,28 +7,33 @@ const burger = require('../models/burger');
 router.get("/", (req,res) => {
     burger.selectAll(function(data) {
         let hbsObject = { burgers: data };
-        // console.log(hbsObject);
+        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 // post route
 router.post("/api/burgers", function(req, res) {
+    console.log('this is post route');
     burger.insertOne({burger_name: req.body.burger_name, devoured: req.body.devoured}, function(result) {
-        // send back the ID of new burger
-        res.json({ id: result.insertId });
+    // send back the ID of new burger
+    console.log(req.body);
+    res.json({ id: result.insertId });
     });
 });
 // put route
 router.put("/api/burgers/:id", function(req, res) {
     // const burgerId = { id: req.params.id };
-    const burgerId = req.params.id;
+    // const burgerId = `id = ${parseInt(req.params.id)}`;
+    const burgerId = {
+        id: parseInt(req.params.id)
+    };
     console.log("this is put method");
     // const devoured = req.params.devoured;
     console.log(req.body);
     console.log("burger id:" + burgerId);
     const updateValues = {
         // switch boolean to tiny int
-        devoured: (req.body.devoured === "true" ? 1 : 0)
+        devoured: (req.body.devoured === "true" ? 0 : 1)
     };
     console.log(updateValues);
     burger.updateOne( updateValues, burgerId, function(result) {
