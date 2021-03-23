@@ -24,6 +24,11 @@ img {
     margin: 20px;
 }
 
+ul {
+    padding: 0 10px;
+    margin: 5px;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
