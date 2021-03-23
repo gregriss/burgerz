@@ -17,6 +17,10 @@ header {
     box-shadow: 5px 5px 10px 10px burlywood;
 }
 
+h1 {
+    font-size: 40px;
+    letter-spacing: 2.5px;
+}
 img {
     height: 285px;
     width: 450px;
@@ -25,8 +29,14 @@ img {
 }
 
 ul {
-    padding: 0 10px;
+    padding: 10px;
     margin: 5px;
+}
+
+button {
+    border: 1px solid black;
+    padding: 3px 5px;
+    border-radius: 5px;
 }
 
 .container {
@@ -42,13 +52,23 @@ ul {
 }
 
 .left {
+    margin-left: 20px;
     grid-area: left; 
 }
 
 .right {
+    margin-right: 20px;
     grid-area: right; 
 }
 
 .add-burger {
     grid-area: add-burger;
+}
+
+.change-devoured {
+    background: lightgreen;
+}
+
+.delete-button {
+    background: lightcoral;
 }
