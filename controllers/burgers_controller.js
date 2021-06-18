@@ -3,15 +3,14 @@ const express = require('express');
 const router = express.Router();
 const burger = require('../models/burger');
 
-// routes 
 router.get("/", (req, res) => {
     burger.selectAll(function (data) {
         let hbsObject = { burgers: data };
-        console.log(hbsObject);
+        // console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
-// post route
+
 router.post("/api/burgers", function (req, res) {
     console.log('this is post route');
     burger.insertOne({ burger_name: req.body.burger_name, devoured: req.body.devoured }, function (result) {
@@ -20,15 +19,15 @@ router.post("/api/burgers", function (req, res) {
         res.json({ id: result.insertId });
     });
 });
-// put route
+
 router.put("/api/burgers/:id", function (req, res) {
     const burgerId = {
         id: parseInt(req.params.id)
     };
     console.log("this is put method");
     // const devoured = req.params.devoured;
-    console.log(req.body);
-    console.log("burger id:" + burgerId);
+    // console.log(req.body);
+    console.log("burger id:" + burgerId.id);
     const updateValues = {
         // switch boolean to tiny int
         devoured: (req.body.devoured === "true" ? 0 : 1)
@@ -47,13 +46,12 @@ router.put("/api/burgers/:id", function (req, res) {
         }
     });
 });
-// delete route
+
 router.delete("/api/burger/:id", (req, res) => {
     burger.delete({ id: req.params.id }, data => {
-        console.log(data);
+        console.log('Burger Deleted', data);
         res.json(data);
     });
 });
 
-// export the router
 module.exports = router;

@@ -14,9 +14,7 @@ let orm = {
     },
     insertOne: function (table, values, cb) {
         let queryString = "INSERT INTO ?? SET ?";
-
-        console.log(queryString);
-
+        // console.log(queryString);
         connection.query(queryString, [table, values], function (err, result) {
             if (err) {
                 throw err;
@@ -26,9 +24,7 @@ let orm = {
     },
     updateOne: function (table, values, condition, cb) {
         let queryString = "UPDATE ?? SET ? WHERE ?";
-
-        console.log(queryString);
-
+        // console.log(queryString);
         connection.query(queryString, [table, values, condition], function (err, result) {
             if (err) {
                 throw err;
@@ -36,10 +32,9 @@ let orm = {
             cb(result);
         });
     },
-    delete: function(table, filters, cb) {
+    delete: function (table, filters, cb) {
         let queryString = "DELETE FROM ?? WHERE ?";
-
-        connection.query(queryString, [table, filters], function(err, result) {
+        connection.query(queryString, [table, filters], function (err, result) {
             if (err) {
                 throw err;
             }
@@ -47,6 +42,5 @@ let orm = {
         })
     }
 };
-
 // Export the ORM object to be used in burger.js model
 module.exports = orm;
